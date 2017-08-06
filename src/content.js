@@ -5,7 +5,6 @@ var selectorList = {
     'slack.com': 'div.ql-editor p'
 }
 
-
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         if (request.message === "clicked_browser_action") {
@@ -17,7 +16,6 @@ chrome.runtime.onMessage.addListener(
                     selector = selectorList[key];
                 }
             }
-            alert(selector);
 
             var node = document.querySelector(selector);
 
@@ -28,8 +26,40 @@ chrome.runtime.onMessage.addListener(
                 message = node.innerText;
             }
 
-            alert(message);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=', true);
+            xhr.onload = function () {
+                var response = JSON.parse(this.responseText);
+                var sentiment = response.documentSentiment;
 
+                var interpretedSentiment;
+
+
+                if (sentiment) {
+
+                    if (sentiment.score > 0.1) {
+                        interpretedSentiment = "Positive";
+                    }
+                    else if (sentiment.score < -.1) {
+                        interpretedSentiment = "Negative";
+                    }
+                    else {
+                        interpretedSentiment = "Neutral";
+                    }
+                    alert(interpretedSentiment + ' (score => ' + sentiment.score + ")");
+                }
+
+            };
+            var sentimentRequest = {
+                "encodingType": "UTF8",
+                "document": {
+                    "type": "PLAIN_TEXT",
+                    "content": ""
+                }
+            };
+            sentimentRequest.document.content = message;
+
+            xhr.send(JSON.stringify(sentimentRequest))
         }
     }
 );

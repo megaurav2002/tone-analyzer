@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/megaurav2002/tone-analyzer/issues"
   },
-  "homepage": "https://github.com/megaurav2002/tone-analyzer#readme"
+  "homepage": "https://github.com/megaurav2002/tone-analyzer#readme",
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
 }
