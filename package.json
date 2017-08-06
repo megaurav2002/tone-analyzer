@@ -1,0 +1,23 @@
+{
+  "name": "tone-analyzer",
+  "version": "1.0.0",
+  "description": "Analyze tone of text before sending it ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megaurav2002/tone-analyzer.git"
+  },
+  "keywords": [
+    "tone-analyzer",
+    "intent-analyzer"
+  ],
+  "author": "Gaurav Talwar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/megaurav2002/tone-analyzer/issues"
+  },
+  "homepage": "https://github.com/megaurav2002/tone-analyzer#readme"
+}
