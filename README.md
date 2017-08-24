@@ -1,5 +1,5 @@
 # tone-analyzer
-This is a demo chrome extension for analyzing slack message tone before sending a message out. It use Google Natural Language API and displays positive/neutral/negative to user
+This is a demo chrome extension for analyzing message tone(slack for now) before sending a message out. It use Google Natural Language API and displays positive/neutral/negative to user
 
 ## Trying it out
 1. Download the code, e.g. `git clone https://github.com/megaurav2002/tone-analyzer`
